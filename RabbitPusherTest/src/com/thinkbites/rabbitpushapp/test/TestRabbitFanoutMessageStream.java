@@ -21,19 +21,25 @@ public class TestRabbitFanoutMessageStream extends TestCase {
 		publisher.connect();
 	}
 	
+	/**
+	 * When publishing 25 messages, 25 messages should be read by the {@link RabbitFannoutMessageStream}
+	 * @throws Exception
+	 */
 	public void testWhenMessageIsPublishedThenItIsReceivedByMessageStream() throws Exception{
-		int numMessages = 10;
-		
+		int numMessages = 25;
+		stream.connect();
 		for (int i = 0; i < numMessages; i++) {
 			String message = "foo-bar-message-"+i;
 			publisher.publish(message);
-			System.out.println(message+" was published");
 		}
+		int messagesRead = 0;
 		for (int i = 0; i < numMessages; i++) {
-			System.out.println("reading from stream");
 			String message = stream.read();
-			System.out.println(message + " was read ");
+			if (message!= null && message.matches("foo-bar-message-.+")){
+				messagesRead++;
+			}
 		}
+		assertEquals(numMessages, messagesRead);
 	}
 	
 	@Override
