@@ -1,5 +1,6 @@
 package com.thinkbites.rabbitpusher.rabbitmq;
 
+
 public abstract class MessageReceiver {
 
 	private String lastMessage;
