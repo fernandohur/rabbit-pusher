@@ -20,5 +20,8 @@ public class FunkyMessageStream extends AbstractMessageStream{
 		
 	}
 
-
+	@Override
+	public void connect() throws Exception {
+		
+	}
 }

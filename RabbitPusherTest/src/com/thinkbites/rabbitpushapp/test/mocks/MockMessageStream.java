@@ -22,5 +22,10 @@ public class MockMessageStream extends AbstractMessageStream {
 	public void write(String message) throws Exception {
 		this.message = message;
 	}
+	
+	@Override
+	public void connect() throws Exception {
+		
+	}
 
 }

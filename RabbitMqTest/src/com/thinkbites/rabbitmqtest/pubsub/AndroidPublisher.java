@@ -1,16 +1,16 @@
 package com.thinkbites.rabbitmqtest.pubsub;
 
+import static com.thinkbites.rabbitmqtest.Constants.ANDROID_EXCHANGE_NAME;
+import static com.thinkbites.rabbitmqtest.Constants.SERVER_URL;
+
 import java.io.IOException;
-import java.util.Date;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import static com.thinkbites.rabbitmqtest.Constants.*;
 
 public class AndroidPublisher {
 
-	
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		

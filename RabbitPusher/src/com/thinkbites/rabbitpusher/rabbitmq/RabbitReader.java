@@ -8,20 +8,34 @@ import com.thinkbites.rabbitpusher.exceptions.ChannelRegistrationException;
 import com.thinkbites.rabbitpusher.exceptions.RabbitInitializationException;
 import com.thinkbites.rabbitpusher.io.Channel;
 
+/**
+ * 
+ * @author mono
+ *
+ */
 public class RabbitReader {
 
-	private Channel latestChannel;
-	private HashMap<String,Channel> channels;
-	private MessageReceiver receiver;
+	/**
+	 * Handler class to be notified when connection is lost
+	 */
 	private ConnectionHandler connectionHandler;
+	/**
+	 * a mapping of channel-name => {@link Channel}
+	 */
+	private HashMap<String,Channel> channels;
+	/**
+	 * Handler class to be notified when messages arrive
+	 */
+	private MessageReceiver receiver;
+	/**
+	 * The last channel that was registered, since there is usually only one channel, this is a
+	 * convenience instead of calling {@link #channels}.get('channel name')
+	 */
+	private Channel latestChannel;
 	
 	public RabbitReader() {
 		channels = new HashMap<String, Channel>();
 		connectionHandler = new EmptyConnectionHandler();
-	}
-
-	public void setConnectionHandler(ConnectionHandler connectionHandler) {
-		this.connectionHandler = connectionHandler;
 	}
 	
 	public void subscribe(Channel channel) {
@@ -48,6 +62,10 @@ public class RabbitReader {
 		}
 	}
 	
+	//---------------------------------------------
+	// Helper methods
+	//---------------------------------------------
+	
 	private void verifyHandlers() {
 		if (connectionHandler==null || receiver == null){
 			throw new RabbitInitializationException("connectionHandler or receiver is null");
@@ -62,6 +80,14 @@ public class RabbitReader {
 			return null;
 		}
 	}
+	
+	//--------------------------------------------
+	// Getters and Setters
+	//--------------------------------------------
+	
+	public void setConnectionHandler(ConnectionHandler connectionHandler) {
+		this.connectionHandler = connectionHandler;
+	}
 
 	public Collection<Channel> getChannels() {
 		return channels.values();
@@ -71,7 +97,7 @@ public class RabbitReader {
 		return latestChannel;
 	}
 
-	public void register(MessageReceiver messageReceiver) {
+	public void setMessageReceiver(MessageReceiver messageReceiver) {
 		this.receiver = messageReceiver;
 	}
 
@@ -82,5 +108,4 @@ public class RabbitReader {
 	public String getLastMessage() {
 		return receiver.getLastMessage();
 	}
-
 }

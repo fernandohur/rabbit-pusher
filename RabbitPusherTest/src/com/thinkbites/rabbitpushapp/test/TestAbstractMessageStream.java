@@ -9,6 +9,12 @@ public class TestAbstractMessageStream extends TestCase {
 	private AbstractMessageStream stream = new AbstractMessageStream() {
 		
 		@Override
+		public void connect() throws Exception {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
 		public void write(String message) throws Exception {
 			// TODO Auto-generated method stub
 			

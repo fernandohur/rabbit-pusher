@@ -74,7 +74,7 @@ public class TestAbstractRabbitReader extends TestCase {
 	 */
 	public void testRegisteringHandler(){
 		reader.subscribe(channel1);
-		reader.register(new MessageReceiver(){
+		reader.setMessageReceiver(new MessageReceiver(){
 			public void onMessageReceived(String message, String channel){
 				
 			}
@@ -89,7 +89,7 @@ public class TestAbstractRabbitReader extends TestCase {
 	public void testWhenMessageIsPostedInChannelReceiverShouldBeNotified() throws Exception{
 		final String text = "foo.bar";
 		reader.subscribe(channel1);
-		reader.register(new MessageReceiver(){
+		reader.setMessageReceiver(new MessageReceiver(){
 			public void onMessageReceived(String message, String channel){
 				assertEquals(CHANNEL1, channel);
 				assertEquals(text, message);
@@ -109,7 +109,7 @@ public class TestAbstractRabbitReader extends TestCase {
 		final String text = "foo.bar";
 		reader.subscribe(channel1);
 		reader.subscribe(channel2);
-		reader.register(new MessageReceiver(){
+		reader.setMessageReceiver(new MessageReceiver(){
 			public void onMessageReceived(String message, String channel){
 				assertEquals(CHANNEL2, channel);
 				assertEquals(text, message);
@@ -134,7 +134,7 @@ public class TestAbstractRabbitReader extends TestCase {
 				connectionLost = true;
 			}
 		});
-		reader.register(new MessageReceiver() {
+		reader.setMessageReceiver(new MessageReceiver() {
 			
 			@Override
 			public void onMessageReceived(String message, String channel) {
@@ -152,7 +152,7 @@ public class TestAbstractRabbitReader extends TestCase {
 	 */
 	public void testReadingFromNonExistingChannel(){
 		reader.subscribe(channel1);
-		reader.register(new EmptyMessageReceiver());
+		reader.setMessageReceiver(new EmptyMessageReceiver());
 		try {
 			reader.read(CHANNEL2);
 			fail();

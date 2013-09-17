@@ -16,7 +16,7 @@ public class RabbitService extends IntentService implements Handler {
 	@Override
 	protected void onHandleIntent(Intent intent) {
 		try {
-			reader = new RabbitReader("157.253.116.142", "android-test", this);
+			reader = new RabbitReader("157.253.116.148", "android-test", this);
 			reader.loop();
 			
 		} catch (Exception e) {

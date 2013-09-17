@@ -45,6 +45,9 @@ public class Channel {
 		return true;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return name;
+	}
 	
 }
