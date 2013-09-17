@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         
-        <service android:name="com.thinkbites.rabbitpushtest.RabbitService"></service>
+        <service android:name="com.thinkbites.rabbitpushtest.SubscriberService"></service>
     </application>
 
 </manifest>

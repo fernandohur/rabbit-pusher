@@ -6,6 +6,7 @@ import java.util.HashMap;
 import com.thinkbites.rabbitpusher.exceptions.ChannelNotFoundException;
 import com.thinkbites.rabbitpusher.exceptions.ChannelRegistrationException;
 import com.thinkbites.rabbitpusher.exceptions.RabbitInitializationException;
+import com.thinkbites.rabbitpusher.helpers.EmptyConnectionHandler;
 import com.thinkbites.rabbitpusher.io.Channel;
 
 /**

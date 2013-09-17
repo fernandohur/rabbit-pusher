@@ -1,4 +1,6 @@
-package com.thinkbites.rabbitpusher.rabbitmq;
+package com.thinkbites.rabbitpusher.helpers;
+
+import com.thinkbites.rabbitpusher.rabbitmq.MessageReceiver;
 
 public class EmptyMessageReceiver extends MessageReceiver {
 

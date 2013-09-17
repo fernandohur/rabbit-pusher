@@ -6,10 +6,10 @@ import com.thinkbites.rabbitpushapp.test.mocks.FunkyMessageStream;
 import com.thinkbites.rabbitpushapp.test.mocks.MockMessageStream;
 import com.thinkbites.rabbitpusher.exceptions.ChannelNotFoundException;
 import com.thinkbites.rabbitpusher.exceptions.ChannelRegistrationException;
+import com.thinkbites.rabbitpusher.helpers.EmptyMessageReceiver;
 import com.thinkbites.rabbitpusher.io.Channel;
 import com.thinkbites.rabbitpusher.io.MessageStream;
 import com.thinkbites.rabbitpusher.rabbitmq.ConnectionHandler;
-import com.thinkbites.rabbitpusher.rabbitmq.EmptyMessageReceiver;
 import com.thinkbites.rabbitpusher.rabbitmq.MessageReceiver;
 import com.thinkbites.rabbitpusher.rabbitmq.RabbitReader;
 

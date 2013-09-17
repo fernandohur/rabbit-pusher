@@ -31,7 +31,7 @@ public class MainActivity extends ListActivity {
 			}
 		};
 		
-		startService(new Intent(getApplicationContext(), RabbitService.class));
+		startService(new Intent(getApplicationContext(), SubscriberService.class));
 	}
 	
 	@Override

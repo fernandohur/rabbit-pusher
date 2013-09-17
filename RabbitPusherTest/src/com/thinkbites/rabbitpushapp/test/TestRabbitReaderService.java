@@ -48,7 +48,6 @@ public class TestRabbitReaderService extends TestCase{
 		
 		for (int i = 0; i < numMessages; i++) {
 			publisher.publish("message-number-"+i);
-			System.out.println("message published: "+i);
 		}
 		latch.await();
 		assertEquals(numMessages, service.getMessagesReceived());
