@@ -23,9 +23,9 @@ public class AndroidPublisher {
 
         
         long timeStart = System.currentTimeMillis();
-        int messages = 2000;
+        int messages = 1;
         for (int i = 0; i < messages; i++) {
-        	String message = ""+i;
+        	String message = "225";
         	channel.basicPublish(ANDROID_EXCHANGE_NAME, "", null, message.getBytes());
         	Thread.sleep(10);
 		}

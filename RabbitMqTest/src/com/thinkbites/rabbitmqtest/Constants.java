@@ -15,5 +15,5 @@ public class Constants {
 	 */
 	public final static String PUBSUB_EXCHANGE_NAME = "pubsub";
 	
-	public final static String ANDROID_EXCHANGE_NAME = "android-test";
+	public final static String ANDROID_EXCHANGE_NAME = "com.thinkbites.taxista";
 }
