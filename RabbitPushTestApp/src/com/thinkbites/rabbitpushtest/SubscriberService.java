@@ -13,7 +13,7 @@ public class SubscriberService extends RabbitReaderService {
 
 	@Override
 	public void onConnectionLost() {
-		Toast.makeText(getApplicationContext(), "connection successful", Toast.LENGTH_SHORT).show();
+		Toast.makeText(getApplicationContext(), "connection failed", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
